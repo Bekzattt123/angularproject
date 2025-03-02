@@ -1,0 +1,9 @@
+<h2>Top Rated Movies</h2>
+<div class="movie-container" *ngFor="let movie of movies; let i = index">
+  <span class="movie-rank">#{{ i + 1 }}</span>
+  <img *ngIf="movie.image" [src]="movie.image.medium" alt="{{ movie.name }}">
+  <h3>{{ movie.name }}</h3>
+  <p class="movie-rating">⭐ {{ movie.rating?.average || 'N/A' }}</p>
+  <a [routerLink]="['/movie', movie.id]">View Details</a>
+  <button (click)="addToFavorites(movie)">❤️ Add to Favorites</button>
+</div>

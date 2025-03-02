@@ -1,0 +1,9 @@
+<h2>Favorite Movies</h2>
+<div class="movies-grid">
+  <div class="movie-card" *ngFor="let movie of favorites">
+    <img [src]="movie.image?.medium" alt="{{ movie.name }}">
+    <h3>{{ movie.name }}</h3>
+    <a [routerLink]="['/movie', movie.id]">View Details</a>
+    <button (click)="removeFavorite(movie.id)">Remove</button>
+  </div>
+</div>

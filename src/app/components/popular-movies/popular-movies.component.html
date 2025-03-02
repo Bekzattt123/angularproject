@@ -1,0 +1,10 @@
+<h2>Popular Movies</h2>
+<div class="movies-grid">
+  <div class="movie-card" *ngFor="let movie of movies">
+    <img [src]="movie.image?.medium" alt="{{ movie.name }}">
+    <h3>{{ movie.name }}</h3>
+    <a [routerLink]="['/movie', movie.id]">View Details</a>
+    <button (click)="addToFavorites(movie)">❤️ Add to Favorites</button>
+
+  </div>
+</div>

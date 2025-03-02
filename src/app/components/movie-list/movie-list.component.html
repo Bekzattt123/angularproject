@@ -1,0 +1,20 @@
+<div class="movie-list">
+
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search movies..." />
+    <button (click)="search()">Search</button>
+  </div>
+
+
+  <div class="movie-list-container">
+    <div *ngFor="let movie of movies" class="movie-card">
+      <h3>
+        <a [routerLink]="['/movie', movie.id]">{{ movie.name }}</a>
+      </h3>
+      <img *ngIf="movie.image" [src]="movie.image.medium" alt="{{ movie.name }} Poster" />
+      <p [innerHTML]="movie.summary | safeHtml"></p>
+      <button (click)="addToFavorites(movie)">❤️ Add to Favorites</button>
+
+    </div>
+  </div>
+</div>
